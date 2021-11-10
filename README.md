@@ -1,16 +1,80 @@
-### Hi there 👋
+### Simple Pixiv Library
 
-<!--
-**CompilationFail/CompilationFail** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+这是一个简约，而且极其简单（指简陋）的 $\text{Pixiv}$ 下载和管理器 （bushi 。
 
-Here are some ideas to get you started:
+目前支持的下载功能：
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+1. 下载指定 $\text{artwork id}$ 的所有图片（Manga的一话可以有几十p？）。
+2. 下载指定画师的所有作品。
+3. 下载今日排行榜的前若干名。
+
+~~由于我太菜了，所以不支持中断下载。~~
+
+目前支持的管理功能：
+
+1. 爬取一个作品的 $\text{tag}$。
+2. 扫描库目录下的文件，抓取所有文件的 $\text{tag}$（默认在通过下载器下载时会自动爬取）。
+3. 检查库里重复的文件（下载时对于库里已经有的文件会自动跳过）。
+4. 查询指定作品的 $\text{tag}$ 。
+5. 删除一个作品，并且将这个作品加入屏蔽名单，以后遇到自动跳过。
+6. 屏蔽指定的 $\text{tag}$。
+7. 复制库里所有的文件到同一个目录下（有啥用？）。
+8. 在库中搜索指定文件（有啥用？）。
+9. 将所有库中作品涉及的 $\text{tag}$ 打印出来。
+10. 读取用户的 $\text{tag}$ 分类。
+11. 搜索指定的一些 $\text{tag}$ 或者是指定的 $\text{tag}$ 分类的作品，并且复制到特定目录下。
+
+使用时的注意事项：
+
+因为本来就是写着玩，自己个儿凑合着用的（实际用起来效果还可以？），所以非常简陋。
+
+1. 将源代码复制到目录下，之后会生成一些文件：
+
+    1. 子文件夹 `Library`，其中存储图片。
+
+    2. `library.json`文件，存储库中图片的信息。信息不与图片路径绑定，所以可以随意移动库中的图片（当然不要移出库！！）。
+
+    3. `taglist.txt`文件，存储库中涉及的 $\text{tag}$。这个文件并不是自动更新的，所以可能不会自动生成。
+
+    4. `tagclassify.txt`文件，存储用户的 $\text{tag}$ 分类。请严格按照
+
+        ```plain
+        classification1:{
+        	tag1
+        	tag2
+        }
+        
+        classification2:{
+        	tag3
+        	tag3
+        }
+        ```
+
+        的形式书写，每个 $\text{tag}$ 前面有 $\text{tab}$。大分类之间可以有空行，但是最好不要出现多余的空格。
+
+    5. `output` 子目录，用于存储复制出来的文件。
+
+    如果不放心可以用一会就备份一下（嗯）。
+
+2. 最好在命令行中运行 `python` 代码，并且不要通过右上角的×关闭命令行（可以通过 `Ctrl-C`），否则可能会导致数据丢失。
+
+    正常关闭时会有 `exiting... over` 字样，此时正在存储文件信息。
+
+    可以通过在资源管理器地址栏中输入 `cmd` 来在当前目录打开命令行。
+
+3. 请仔细阅读代码中的注释哦。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
