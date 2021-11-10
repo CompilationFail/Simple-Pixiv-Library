@@ -46,7 +46,7 @@ cookieheaders = {
 
 # Download method Wget , usually in linux
 def Wget(url,path,headers):
-	cmd="wget "+url+" -c -O"+path+" "
+	cmd="wget "+url+" -c -O \""+path+"\" "
 	cmd+="-e http_proxy=http://"+proxy+" "
 	cmd+="-e https_proxy=http://"+proxy+" "
 	for i in headers.keys():
@@ -55,7 +55,8 @@ def Wget(url,path,headers):
 			
 # Download method aria2, please put aria2c.exe to system path
 def Aria2(url,path,headers):
-	cmd="aria2c.exe "+url+" -c -d "+path+" ";
+	print(url,path)
+	cmd="aria2c.exe "+url+" -c -d \""+path+"\" ";
 	cmd+=" --all-proxy=http://"+proxy+" "
 	for i in headers.keys():
 		cmd+="--header=\""+i+": "+headers[i]+"\" "
@@ -568,5 +569,6 @@ if __name__=='__main__':
 
 	lib.Download_RankTop(20) # Download top 20 files.
 	'''
+	lib.Download_RankTop(20)
 
 
